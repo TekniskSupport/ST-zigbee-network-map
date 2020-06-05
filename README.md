@@ -1,8 +1,10 @@
 # ST-network-map
 Creates a map for your zigbee/Z-wave network
 
+First run:
+`pip3 install matplotlib bs4 networkx`
 
-run from terminal:
+Then run from terminal:
 `python3 scrape-st.py`
 
 Extract cookie from session using "application" tab under developer tools (right click -> inspect -> Application -> cookies)
