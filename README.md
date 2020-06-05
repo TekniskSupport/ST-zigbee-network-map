@@ -1,5 +1,5 @@
-# ST-zigbee-network-map
-Creates a map for your zigbee network
+# ST-network-map
+Creates a map for your zigbee/Z-wave network
 
 
 run from terminal:
