@@ -17,8 +17,8 @@ for device in soup.select('#device-table > tbody > tr'):
     link = device.select('td:nth-of-type(1) > a')[0]
     deviceName        = link.text.strip()
     deviceDetailsLink = link.get('href')
-
     deviceType        = device.select('td:nth-of-type(2)')[0].text.strip()
+    hubName           = device.select('td:nth-of-type(4)')[0].text.strip()
     deviceId          = device.select('td:nth-of-type(5)')[0].text.strip()
     deviceNetworkId   = device.select('td:nth-of-type(6)')[0].text.strip()
     deviceStatus      = device.select('td:nth-of-type(7)')[0].text.strip()
@@ -44,7 +44,7 @@ for device in soup.select('#device-table > tbody > tr'):
         if rex and rex.group(1) != deviceNetworkId:
             deviceRoute.append(rex.group(1))
             print(rex.group(1))
-        if route.text == 'SmartThings Hub':
+        if route.text == hubName:
             deviceRoute.append('0')
             print(route.text)
         if route == routes[-1]:
