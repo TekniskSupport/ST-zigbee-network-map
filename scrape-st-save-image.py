@@ -70,5 +70,5 @@ options = {
 
 nx.draw(G,**options)
 fig = plt.gcf()
-fig.set_size_inches(18, 10, forward=True)
+fig.set_size_inches(180, 100, forward=True)
 plt.savefig('path.png')
