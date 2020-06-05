@@ -9,7 +9,7 @@ cookies = {'JSESSIONID': input("COOKIE:")}
 host    = 'https://graph-eu01-euwest1.api.smartthings.com'
 r       = requests.get(host+'/device/list', cookies=cookies)
 
-G.add_node('0',details='{\'name\': }')
+G.add_node('0',details='{\'name\': \'Hub\'}')
 
 soup = BeautifulSoup(r.content, "html.parser")
 translationDict = {}
