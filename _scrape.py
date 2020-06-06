@@ -34,6 +34,11 @@ for device in soup.select('#device-table > tbody > tr'):
     }
     G.add_node(deviceNetworkId, details=deviceData)
     routes = details.select('#meshRoute-label + td a')
+    rssi   = details.select(
+        '#deviceMetrics-label + td > ul > li:nth-of-type(2) > strong'
+        )
+    if rssi:
+        translationDict[deviceNetworkId] = deviceName + ' RSSI: ' + rssi[0].text
     deviceRoute = []
     for route in routes:
         rex = re.search('.*\((.+)\).*', route.text)
