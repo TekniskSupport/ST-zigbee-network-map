@@ -4,7 +4,7 @@ Creates a map for your zigbee/Z-wave network
 Made primarely for my own use, uses European IDE, so you might need to change the URI on line 9
 
 First run:
-`pip3 install matplotlib bs4 networkx`
+`pip3 install matplotlib bs4 networkx requests`
 
 Then run from terminal:
 `python3 scrape-st.py`
