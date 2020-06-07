@@ -3,7 +3,7 @@ Creates a map for your zigbee/Z-wave network
 
 ![screenshot](https://raw.githubusercontent.com/TekniskSupport/ST-zigbee-network-map/master/screenshot.png "screenshot")
 
-Made primarely for my own use, uses European IDE, so you might need to change the URI on line 9
+Made primarely for my own use, uses European IDE, so you might need to change the [URI](https://github.com/TekniskSupport/ST-zigbee-network-map/blob/master/_scrape.py#L8)
 
 First run:
 `pip3 install matplotlib bs4 networkx requests`
