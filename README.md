@@ -1,4 +1,4 @@
-# ST-network-map
+# SmartThings network map
 ## Creates a map for your zigbee/Z-wave network
 
 ![screenshot](https://raw.githubusercontent.com/TekniskSupport/ST-zigbee-network-map/master/screenshot.png "screenshot")
