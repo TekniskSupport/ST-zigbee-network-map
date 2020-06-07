@@ -13,18 +13,19 @@ Then run from terminal:
 
 ### Extract cookie from session:
 Chrome:
-login to [IDE](https://account.smartthings.com)
-Open developer tools by pressing F12 or right click and inspect
-Navigate to "application" tab and expand cookies
-look for the line with name JSESSIONID and copy the value.
+
+- login to [IDE](https://account.smartthings.com)
+- Open developer tools by pressing F12 or right click and inspect
+- Navigate to "application" tab and expand cookies
+- look for the line with name JSESSIONID and copy the value.
 
 Firefox/Edge:
-login to [IDE](https://account.smartthings.com)
-Open developer tools by pressing F12 or right click and inspect element
-to to Storage tab and expand Cookies
-look for the line with name JSESSIONID and copy the value.
 
-Edge:
+- login to [IDE](https://account.smartthings.com)
+- Open developer tools by pressing F12 or right click and inspect element
+to to Storage tab and expand Cookies
+- look for the line with name JSESSIONID and copy the value.
+
 
 
 ____
