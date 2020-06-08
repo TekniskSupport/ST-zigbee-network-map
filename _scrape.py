@@ -2,9 +2,10 @@ import networkx as nx
 import re
 import requests
 from bs4 import BeautifulSoup
+import matplotlib.pyplot as plt
 
 G       = nx.Graph()
-cookies = {'JSESSIONID': input("COOKIE:")}
+cookies = {'JSESSIONID': raw_input("COOKIE:")}
 host    = 'https://graph-eu01-euwest1.api.smartthings.com'
 r       = requests.get(host+'/device/list', cookies=cookies)
 
