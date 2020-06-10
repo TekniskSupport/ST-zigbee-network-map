@@ -40,6 +40,10 @@ for device in soup.select('#device-table > tbody > tr'):
     if rssi:
         translationDict[deviceNetworkId] = deviceName + ' RSSI: ' + rssi[0].text
     deviceRoute = []
+    if not routes:
+        G.remove_node(deviceNetworkId)
+        translationDict.pop(deviceNetworkId)
+        print("REMOVED " + deviceNetworkId + " as it had no routes. (Wifi device?)\n")
     for route in routes:
         rex = re.search('.*\((.+)\).*', route.text)
         if route == routes[1]:
