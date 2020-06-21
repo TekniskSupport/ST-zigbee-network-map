@@ -3,15 +3,16 @@
 
 ![screenshot](https://raw.githubusercontent.com/TekniskSupport/ST-zigbee-network-map/master/screenshot.png "screenshot")
 
-Made primarily for my own use. Uses *European IDE*, so you might need to change the [URI](https://github.com/TekniskSupport/ST-zigbee-network-map/blob/master/_scrape.py#L8)
-
 First run:
 `python -m pip install matplotlib bs4 networkx requests`
 
 Then run from terminal:
 `python scrape-st.py`
 
-### Extract cookie from session:
+### Optionally pass sessionID as commandline argument
+`python scrape-st.py YOUR-JSESSION-ID`
+
+### Extract JSESSIONID value from cookie:
 Chrome:
 
 - login to [IDE](https://account.smartthings.com)

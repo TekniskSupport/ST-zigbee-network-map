@@ -1,10 +1,14 @@
+import sys
 import networkx as nx
 import re
 import requests
 from bs4 import BeautifulSoup
 
 G       = nx.Graph()
-cookies = {'JSESSIONID': input("JSESSIONID:")}
+if (len(sys.argv) > 1):
+    cookies = {'JSESSIONID': sys.argv[1]}
+else:
+    cookies = {'JSESSIONID': input("JSESSIONID:")}
 hostList = {
     'https://graph.api.smartthings.com',
     'https://graph-na02-useast1.api.smartthings.com',
