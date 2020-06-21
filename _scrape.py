@@ -5,15 +5,34 @@ from bs4 import BeautifulSoup
 
 G       = nx.Graph()
 cookies = {'JSESSIONID': input("COOKIE:")}
-host    = 'https://graph-eu01-euwest1.api.smartthings.com'
-r       = requests.get(host+'/device/list', cookies=cookies, allow_redirects=False)
+hostList = {
+    'https://graph.api.smartthings.com',
+    'https://graph-na02-useast1.api.smartthings.com',
+    'https://graph-na04-useast2.api.smartthings.com',
+    'https://graph-eu01-euwest1.api.smartthings.com',
+    'https://graph-ap02-apnortheast2.api.smartthings.com'
+}
+
+for host in hostList:
+    r       = requests.get(host+'/device/list', cookies=cookies, allow_redirects=False)
+    if (r.status_code == 302):
+        print('Redirect deetected. Invalid login? Double check sessionID')
+        continue
+    if (r.status_code == 200):
+        print('Shard matching session found: '+ host)
+        break
 
 if (r.status_code == 302):
-    print('Redirect deetected. Invalid login? Double check sessionID and domain')
+    print('Did not find any valid server, double check cookie')
     exit()
 
 soup = BeautifulSoup(r.content, "html.parser")
 translationDict = {}
+
+if (len(soup.select('#device-table > tbody > tr')) == 0):
+    print('No devices found')
+    exit()
+
 for device in soup.select('#device-table > tbody > tr'):
     link = device.select('td:nth-of-type(1) > a')[0]
     deviceName        = link.text.strip()
