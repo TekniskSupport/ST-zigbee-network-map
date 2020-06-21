@@ -9,7 +9,7 @@ First run:
 Then run from terminal:
 `python scrape-st.py`
 
-### Optionally pass sessionID as commandline argument
+Optionally pass sessionID as commandline argument
 `python scrape-st.py YOUR-JSESSION-ID`
 
 ### Extract JSESSIONID value from cookie:
