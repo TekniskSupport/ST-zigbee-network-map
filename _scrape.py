@@ -6,7 +6,11 @@ from bs4 import BeautifulSoup
 G       = nx.Graph()
 cookies = {'JSESSIONID': input("COOKIE:")}
 host    = 'https://graph-eu01-euwest1.api.smartthings.com'
-r       = requests.get(host+'/device/list', cookies=cookies)
+r       = requests.get(host+'/device/list', cookies=cookies, allow_redirects=False)
+
+if (r.status_code == 302):
+    print('Redirect deetected. Invalid login? Double check sessionID and domain')
+    exit()
 
 soup = BeautifulSoup(r.content, "html.parser")
 translationDict = {}
