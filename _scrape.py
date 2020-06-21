@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 
 G       = nx.Graph()
-cookies = {'JSESSIONID': input("COOKIE:")}
+cookies = {'JSESSIONID': input("JSESSIONID:")}
 hostList = {
     'https://graph.api.smartthings.com',
     'https://graph-na02-useast1.api.smartthings.com',
@@ -15,22 +15,23 @@ hostList = {
 
 for host in hostList:
     r       = requests.get(host+'/device/list', cookies=cookies, allow_redirects=False)
+    print('Trying shard: ' + host)
     if (r.status_code == 302):
-        print('Redirect deetected. Invalid login? Double check sessionID')
+        print('Redirect deetected. Invalid login? Double check JSESSIONID')
         continue
     if (r.status_code == 200):
         print('Shard matching session found: '+ host)
         break
 
 if (r.status_code == 302):
-    print('Did not find any valid server, double check cookie')
+    print('Did not find any valid server, double check JSESSIONID')
     exit()
 
 soup = BeautifulSoup(r.content, "html.parser")
 translationDict = {}
 
 if (len(soup.select('#device-table > tbody > tr')) == 0):
-    print('No devices found')
+    print('No devices found, did you provide token to wrong shard?')
     exit()
 
 for device in soup.select('#device-table > tbody > tr'):
